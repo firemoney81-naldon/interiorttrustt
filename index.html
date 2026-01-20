@@ -1,23 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <!-- SEO Schema Markup for FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "30평 아파트 인테리어 평균 비용은 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "30평대 인테리어 비용은 시공 범위와 자재 등급에 따라 크게 달라집니다. 일반적으로 부분 인테리어는 1,000만 원~2,500만 원, 전체 리모델링(기본)은 3,000만 원~5,000만 원, 고급 시공은 6,000만 원 이상으로 예상됩니다. 정확한 비용은 상세 견적 비교를 통해 확인하는 것이 좋습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "인테리어 업체 선정 시 가장 중요한 점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "업체 선정 시에는 포트폴리오(시공 경험), 고객 후기(내돈내산 리뷰), 계약서 명확성, A/S 보장 여부를 확인해야 합니다. 특히 상세 견적서에 포함된 품목과 자재 사양을 꼼꼼히 검토하여 추가 비용 발생 여부를 미리 확인하는 것이 중요합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "30평 인테리어 시공 기간은 얼마나 걸리나요?",
+          "@id": "#시공기간-답변",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "시공 범위에 따라 다르지만, 30평대 아파트 전체 리모델링은 일반적으로 3주에서 6주 정도 소요됩니다. 부분 시공은 1주~2주 정도 걸립니다. 시공 전 꼼꼼한 사전 미팅과 일정 조율이 필요합니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS variables for a modern, soft aesthetic */
+        :root {
+            --primary-color: #0A2B4E; /* Dark Blue */
+            --secondary-color: #2F6FD5; /* Medium Blue */
+            --accent-color: #38C7A3; /* Mint Green Accent */
+            --text-color: #333;
+            --bg-light: #F7F9FC; /* Light Blueish Gray */
+            --bg-dark: #1E3A8A; /* Darker Blue */
+            --btn-cta: #FF6B6B; /* Soft Red/Coral for CTA */
+            --border-color: #E0E0E0;
+            --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-color); line-height: 1.7; font-size: 16px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 헤더: 로고와 상위 메뉴 */
+        header { background-color: #fff; padding: 20px; text-align: center; border-bottom: 2px solid #eee; }
+        header h1 { margin: 0; font-size: 2.5em; color: var(--primary-color); }
+        header h1 a { text-decoration: none; color: inherit; }
+
+        /* 히어로 섹션: 핵심 정보와 CTA */
+        .hero { background-color: var(--bg-dark); color: #fff; text-align: center; padding: 80px 20px; position: relative; overflow: hidden; }
+        .hero h1 { font-size: 3.2em; margin-bottom: 15px; font-weight: 700; line-height: 1.3; }
+        .hero p { font-size: 1.3em; margin-bottom: 30px; }
+        
+        /* CTA 버튼: 강렬한 시각적 피드백 */
+        .cta-btn { background-color: var(--btn-cta); color: #fff; padding: 18px 40px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; display: inline-block; }
+        .cta-btn:hover { background-color: #e55a5a; transform: translateY(-3px); }
+
+        /* 비교견적 폼: 시각적으로 돋보이게 */
+        .compare-form-box { background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: var(--shadow-light); margin-top: 30px; }
+        .compare-form-box h2 { color: var(--primary-color); text-align: center; margin-bottom: 25px; font-size: 2em; }
+        .compare-form-box p { font-size: 1.1em; text-align: center; margin-bottom: 20px; color: #555; }
+        .compare-form-box form { max-width: 500px; margin: 0 auto; }
+        .compare-form-box label { display: block; margin-bottom: 8px; font-weight: 500; color: #444; }
+        .compare-form-box input { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid var(--border-color); border-radius: 5px; box-sizing: border-box; font-size: 1em; }
+        
+        /* 컨텐츠 섹션: 논리적이고 깔끔한 구분 */
+        .content-section { background-color: #fff; padding: 60px 0; margin-top: 20px; border-radius: 10px; box-shadow: var(--shadow-light); }
+        .content-section h2 { font-size: 2.5em; color: var(--secondary-color); border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; margin-bottom: 30px; text-align: center; font-weight: 700; }
+        .content-section h3 { font-size: 1.8em; color: var(--primary-color); margin-top: 30px; margin-bottom: 15px; font-weight: 700; line-height: 1.5; }
+        .content-section p { margin-bottom: 20px; color: #444; }
+        .content-section strong { font-weight: 700; color: var(--secondary-color); }
+
+        .feature-grid { display: flex; flex-wrap: wrap; justify-content: space-between; text-align: center; margin-top: 30px; }
+        .feature-grid .item { width: calc(33.33% - 20px); margin: 10px; padding: 20px; background-color: var(--bg-light); border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .feature-grid .item:hover { transform: translateY(-5px); }
+        .feature-grid .item img { width: 80px; height: 80px; margin-bottom: 15px; }
+        .feature-grid .item h3 { color: var(--primary-color); font-size: 1.4em; margin-top: 0; }
+
+        /* FAQ 섹션 */
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .faq-item h3 { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.4em; color: var(--primary-color); margin-bottom: 0; }
+        .faq-item h3::after { content: '+'; font-size: 1.5em; color: var(--secondary-color); transition: transform 0.3s; }
+        .faq-item.active h3::after { content: '-'; transform: rotate(180deg); }
+        .faq-item p { display: none; padding-top: 15px; color: #555; line-height: 1.8; }
+        .faq-item.active p { display: block; }
+        
+        /* '함께 많이 찾는' 키워드 리스트 */
+        .keyword-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+        .keyword-list li { background-color: var(--secondary-color); color: #fff; padding: 10px 20px; margin: 5px; border-radius: 20px; font-weight: 500; font-size: 0.9em; transition: background-color 0.3s; cursor: pointer; }
+        .keyword-list li:hover { background-color: #1a56b7; }
+
+        /* 테이블 및 그래프 스타일 */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 1em; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: center; }
+        th { background-color: var(--bg-light); color: var(--primary-color); font-weight: 700; }
+        td { color: #555; }
+
+        /* 푸터: 사이트 정보 및 링크 */
+        footer { background-color: var(--primary-color); color: #fff; text-align: center; padding: 40px 20px; font-size: 0.9em; line-height: 1.8; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; opacity: 0.8; }
+        footer a:hover { text-decoration: underline; opacity: 1; }
+        footer .legal-links { margin-bottom: 15px; }
+
+        /* 모바일 친화적 반응형 디자인 (구독성 향상) */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.1em; }
+            .cta-btn { padding: 15px 30px; font-size: 1.1em; }
+            .compare-form-box { padding: 25px; }
+            .content-section h2 { font-size: 1.8em; }
+            .feature-grid .item { width: 100%; margin: 10px 0; }
+            .keyword-list { justify-content: flex-start; }
+            .keyword-list li { margin: 3px; font-size: 0.9em; }
+            .content-section h3 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="/">30평 인테리어 전문가이드</a></h1>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section class="hero">
+            <div class="container">
+                <h1>30평 인테리어, 비용과 품질 모두 잡는 방법</h1>
+                <p>30평대 아파트 리모델링, 막막한 비용 때문에 고민이신가요? <br>합리적인 견적으로 내집을 꿈꾸던 공간으로 바꾸어 드립니다.</p>
+                <div class="compare-form-box">
+                    <h2>실시간 30평 인테리어 무료 예상 견적 서비스</h2>
+                    <p>간단한 정보 입력으로 **저렴하고 퀄리티 높은 인테리어** 업체를 찾아드립니다.</p>
+                    <form action="#" method="post">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" placeholder="이름을 입력하세요" required>
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" placeholder="휴대폰 번호를 입력하세요" required>
+                        <label for="address">시공 주소(예: 서울 강남구)</label>
+                        <input type="text" id="address" placeholder="시공을 원하는 주소를 입력하세요" required>
+                        <button type="submit" class="cta-btn">인테리어 최저가 견적 받기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>왜 저희 '30평 인테리어 전문가이드'를 선택해야 할까요?</h2>
+                <div class="feature-grid">
+                    <div class="item">
+                        <img src="https://via.placeholder.com/80/0A2B4E/fff?text=ICON1" alt="전문가 상담 아이콘">
+                        <h3>전문가 1:1 맞춤 상담</h3>
+                        <p>30평 인테리어에 특화된 전문가가 고객님의 요구사항을 반영하여 맞춤형 디자인을 제안합니다.</p>
+                    </div>
+                    <div class="item">
+                        <img src="https://via.placeholder.com/80/0A2B4E/fff?text=ICON2" alt="비용 비교 아이콘">
+                        <h3>투명한 비용 비교 시스템</h3>
+                        <p>다양한 시공 업체의 **30평 인테리어 비용**을 투명하게 비교하여 불필요한 지출을 줄여드립니다.</p>
+                    </div>
+                    <div class="item">
+                        <img src="https://via.placeholder.com/80/0A2B4E/fff?text=ICON3" alt="내돈내산 후기 아이콘">
+                        <h3>검증된 업체 매칭</h3>
+                        <p>실제 **내돈내산 후기**와 평점을 기반으로 검증된 인테리어 업체를 추천하여 만족도를 높입니다.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 60px;">함께 많이 찾는 30평 인테리어 키워드</h3>
+                <ul class="keyword-list">
+                    <li>#30평인테리어비용</li>
+                    <li>#30평아파트리모델링견적</li>
+                    <li>#30평주방인테리어</li>
+                    <li>#30평거실인테리어</li>
+                    <li>#아파트인테리어순위</li>
+                    <li>#30평인테리어장단점</li>
+                    <li>#인테리어업체선정팁</li>
+                    <li>#2026인테리어트렌드</li>
+                    <li>#30평화장실리모델링</li>
+                    <li>#30평부분인테리어</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="content-section" style="background-color: #fcfcfc;">
+            <div class="container">
+                <h2 id="interior-cost-guide">30평 인테리어 비용: 평균 예상 견적 및 절약 팁</h2>
+                <p>
+                    **30평대 인테리어**는 꼼꼼한 예산 계획이 필수적입니다. 단순히 **평당 인테리어 비용**으로만 판단하기보다, 어떤 요소들이 전체 견적을 구성하는지 이해하는 것이 중요합니다. 시공 범위에 따라 비용이 천차만별이므로, 고객님의 상황에 맞는 합리적인 선택을 할 수 있도록 돕습니다.
+                </p>
+
+                <h3 id="cost-comparison">1. 30평대 인테리어 시공 범위별 예상 견적 비교 (2026년 기준)</h3>
+                <p>
+                    30평 인테리어는 크게 '부분 시공'과 '전체 리모델링'으로 나뉩니다. 부분 시공은 비용이 저렴하지만 노후된 부분을 완벽하게 개선하기 어렵고, 전체 리모델링은 비용은 높지만 장기적으로 주거 만족도를 높일 수 있습니다.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>시공 범위</th>
+                            <th>예상 비용 (평균)</th>
+                            <th>주요 시공 내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>부분 시공 (가벼운)</td>
+                            <td>1,000만 원 ~ 2,000만 원</td>
+                            <td>도배, 장판/마루 교체, 조명, 싱크대 상판 교체 등 일부만 진행</td>
+                        </tr>
+                        <tr>
+                            <td>전체 리모델링 (표준)</td>
+                            <td>3,000만 원 ~ 4,500만 원</td>
+                            <td>주방, 욕실 1개소, 도배, 마루, 창호(일부), 몰딩, 조명 전체 교체</td>
+                        </tr>
+                        <tr>
+                            <td>전체 리모델링 (고급)</td>
+                            <td>5,000만 원 이상</td>
+                            <td>주방(아일랜드형), 욕실 2개소, 시스템 창호 전체, 맞춤 가구, 디자인 조명 등 고급 자재 사용</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.9em; color: #777; margin-top: 10px;">*위 금액은 서울 및 수도권 기준의 평균이며, 자재 등급과 업체 규모, 지역별 인건비 등에 따라 차이가 발생할 수 있습니다. <a href="https://www.google.com/search?q=한국소비자원+인테리어+분쟁" target="_blank">한국소비자원</a> 등 공공기관 자료를 통해 시공업체와 계약 전 분쟁 사례를 미리 확인하는 것이 좋습니다.</p>
+
+                <h3 id="saving-tips">2. 30평 인테리어 비용 절약을 위한 3가지 팁</h3>
+                <p>
+                    **30평대 아파트 리모델링**은 생각보다 큰 비용이 들어갑니다. 하지만 현명하게 절약할 수 있는 방법들이 있습니다. **인테리어 싼곳**을 찾기 위해 단순히 견적만 비교하지 말고, 아래 팁들을 활용해 보세요.
+                </p>
+                <h4>팁 1: 불필요한 공사 과감하게 제외하기 (선택과 집중)</h4>
+                <p>
+                    **30평 인테리어 견적**을 크게 좌우하는 것은 철거 및 설비 공사입니다. 주방, 욕실, 창호 교체는 비용이 많이 드는 부분입니다. 만약 주방이나 욕실 상태가 양호하다면 부분 시공을 고려하거나, 창호 대신 필름 시공을 선택하는 것이 비용을 크게 줄일 수 있는 방법입니다.
+                </p>
+                <h4>팁 2: 자재 사양 등급 조절하기 (가성비 자재 선택)</h4>
+                <p>
+                    인테리어 비용 중 자재비가 차지하는 비중이 높습니다. 예를 들어, 마루나 타일, 싱크대 자재의 등급을 한 단계 낮추면 총 비용이 수백만 원 절감됩니다. **30평대 인테리어**에서는 넓은 공간만큼 자재비가 더 많이 들기 때문에, 가성비 좋은 브랜드의 제품을 선택하는 것이 현명합니다.
+                </p>
+                <h4>팁 3: 셀프 인테리어와 전문 업체의 조화 (하이브리드 시공)</h4>
+                <p>
+                    모든 것을 업체에 맡기면 편리하지만, 비용이 올라갑니다. 반면 모든 것을 셀프로 하면 고생이 심합니다. 페인트칠, 조명 교체, 소품 구입 등 난이도가 낮은 작업은 직접 진행하고, 설비나 목공 등 전문 기술이 필요한 부분만 **30평 인테리어 업체**에 맡기는 하이브리드 방식도 고려해 볼 수 있습니다. <a href="https://namu.wiki/w/%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4" target="_blank">나무위키</a> 등에서 인테리어 관련 지식을 미리 학습하면 도움이 됩니다.
+                </p>
+
+                <h3 id="process-and-risk">3. 30평 인테리어 업체 선정: 내돈내산 후기와 리스크 관리</h3>
+                <p>
+                    **인테리어 업체 추천**을 받거나, **30평 인테리어 잘하는 곳**을 찾는 것은 매우 어렵습니다. 최근에는 **인테리어 플랫폼 순위**를 통해 다양한 업체 포트폴리오를 비교할 수 있지만, 무엇보다 중요한 것은 실제 고객의 **내돈내산 후기**입니다.
+                </p>
+                <img src="https://via.placeholder.com/1000x300/F0F4F8/333?text=30평+아파트+인테리어+시공+과정+이미지" alt="30평 인테리어 시공 과정" style="width:100%; margin: 20px 0; border-radius: 8px;">
+                <p>
+                    인테리어 공사 리스크를 줄이기 위해서는 꼼꼼한 계약서 작성이 필수입니다. 특히 **30평 인테리어** 시공 계약서에는 시공 범위, 자재 목록(브랜드, 등급, 색상), 총 비용, 지불 조건(선금, 중도금, 잔금 비율), 시공 기간, A/S 기간 등을 명확하게 기재해야 합니다. <a href="https://www.google.com/search?q=한국인테리어협회" target="_blank">한국인테리어협회</a>와 같은 전문가 단체의 자료를 참고하여 표준 계약서를 활용하는 것도 좋은 방법입니다.
+                </p>
+
+                <h3 id="style-trends">4. 2026년 30평 인테리어 트렌드 분석</h3>
+                <p>
+                    2026년의 인테리어 트렌드는 '개인의 라이프스타일'과 '지속 가능성'이 핵심입니다. **30평대 인테리어**는 공간 활용도가 중요하기 때문에, 유연한 레이아웃과 수납공간 확보에 중점을 둡니다.
+                </p>
+                <h4>트렌드 1: 확장된 주방 공간 (LDK 구조의 인기)</h4>
+                <p>
+                    **30평 주방 인테리어**의 경우, 거실과 주방이 분리된 기존 아파트 구조에서 벗어나 거실-주방-다이닝룸이 하나로 연결된 LDK(Living-Dining-Kitchen) 구조가 인기를 얻고 있습니다. 이는 가족 간의 소통을 증진하고 공간을 더 넓어 보이게 하는 효과가 있습니다. **30평대 아파트 리모델링** 시 벽 철거를 통해 공간을 확장하는 경우가 많습니다.
+                </p>
+                <h4>트렌드 2: 다용도실 및 팬트리 활용 극대화</h4>
+                <p>
+                    **30평대 인테리어**에서 가장 부족하다고 느끼는 부분 중 하나가 수납공간입니다. 특히 주방 팬트리나 확장된 베란다 공간을 활용하여 드레스룸 또는 다용도실을 만드는 것이 일반화되었습니다. 주방 옆 **30평 보조주방**을 설계하여 수납력을 높이는 것도 효율적인 방법입니다.
+                </p>
+                <h4>트렌드 3: 친환경 및 스마트홈 기술 접목</h4>
+                <p>
+                    친환경 자재와 스마트 기술을 접목한 인테리어가 주류로 자리잡고 있습니다. VOCs(휘발성유기화합물)가 적은 벽지나 페인트, 친환경 마루재를 선호하며, 조명, 냉난방, 잠금장치 등을 AI 스피커나 스마트폰으로 제어할 수 있는 **스마트 인테리어**가 보편화되고 있습니다.
+                </p>
+
+                <h3 id="regional-keywords">5. 지역별 30평 인테리어 비용 차이: 서울 vs. 지방</h3>
+                <p>
+                    인테리어 비용은 지역별 인건비 차이에 따라 달라집니다. 일반적으로 **서울 강남 30평 인테리어** 견적은 **수도권(경기도) 30평 인테리어**나 **지방(부산, 대구, 대전 등) 30평 인테리어**보다 높게 형성되는 경향이 있습니다. 이는 인건비와 자재 물류비용의 차이 때문입니다.
+                </p>
+                <ul>
+                    <li>**서울 및 수도권:** **서울 강남 인테리어**, **서초 30평 인테리어**, **송파 30평 인테리어**는 프리미엄 자재를 사용하는 경우가 많아 견적이 높은 편입니다. **경기 수원**, **용인**, **성남** 등은 서울 대비 합리적인 가격대를 형성합니다.</li>
+                    <li>**광역시:** **부산 30평 아파트 인테리어**, **대구 30평 인테리어**, **광주 인테리어**, **대전 인테리어** 등은 인건비가 서울 대비 다소 낮아 총 견적을 절약할 수 있습니다.</li>
+                    <li>**중소도시:** **천안**, **청주**, **창원**, **포항** 등 중소도시는 지역 업체와의 계약을 통해 합리적인 가격으로 시공이 가능합니다.</li>
+                </ul>
+                <p>
+                    **30평 인테리어 견적**을 비교할 때는 지역별 특성을 고려하고, 해당 지역에서 시공 경험이 많은 **30평 인테리어 잘하는 곳**을 찾는 것이 중요합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="container">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <div class="faq-item">
+                    <h3 id="q1">30평 인테리어 비용, 어떻게 비교해야 가장 정확한가요?</h3>
+                    <p>
+                        가장 정확한 방법은 최소 3곳 이상의 **30평 인테리어 업체**에 상세 견적을 받는 것입니다. 견적서에는 시공 범위, 자재 목록(브랜드/등급), 인건비, 부가세 포함 여부 등을 반드시 기재하도록 요구해야 합니다. 단순히 총액만 비교하면 나중에 추가 비용이 발생할 수 있으므로, 세부 내역을 꼼꼼히 대조해야 합니다.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="q2">30평 아파트 리모델링, 올수리 기간은 얼마나 걸리나요?</h3>
+                    <p>
+                        30평대 아파트 전체 리모델링(올수리) 시공 기간은 평균 3주에서 6주 정도 소요됩니다. 철거, 설비, 목공, 타일, 도배, 마루, 가구 설치 등 각 공정별로 필요한 시간이 있으며, 특히 창호 교체나 욕실 방수 공사가 포함될 경우 기간이 늘어날 수 있습니다. 꼼꼼한 사전 계획과 일정 관리가 필수입니다.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="q3">인테리어 공사 시 발생하는 추가 비용을 줄이는 방법이 있나요?</h3>
+                    <p>
+                        추가 비용은 주로 계약서에 명시되지 않은 작업이나 자재 변경 요청으로 발생합니다. 계약 전 시공 범위를 명확히 하고, 자재 사양을 정확하게 합의해야 합니다. 공사 중 자재 변경은 최소화하고, 초기 계약 시 견적서에 모든 항목을 포함하도록 요구하는 것이 좋습니다. **30평 인테리어**는 면적이 넓어 작은 변경에도 비용 증가 폭이 크다는 점을 기억하세요.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+ 
+    <script>
+        // FAQ 토글 기능 (사용자 경험 개선)
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+
+  
